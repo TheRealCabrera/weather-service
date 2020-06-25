@@ -1,0 +1,18 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: weather-service
+  namespace: knativetutorial
+spec:
+  runLatest:
+    configuration:
+      revisionTemplate:
+        spec:
+          container:
+            image: __IMAGE__
+            env:
+              - name: WEATHER_API_TOKEN
+                valueFrom:
+                  secretKeyRef:
+                    name: weather-api
+                    key: token
