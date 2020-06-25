@@ -38,9 +38,9 @@ To deploy on OpenShift, run the following, but make sure to replace with your ow
 cd $PROJECT_ROOT
 cp ./src/main/docker/Dockerfile.jvm .
 docker login
-docker build -t your_dockerhub_username_here/weather-service .
-docker push your_dockerhub_username_here/weather-service
-kn service create weather-service --namespace yournamespace_here --image registry.hub.docker.com/your_dockerhub_username_here/weather-service:latest --env WEATHER_API_TOKEN=your_weather_api_token_here --force
+docker build -t <your_dockerhub_username_here>/weather-service .
+docker push <your_dockerhub_username_here>/weather-service
+kn service create weather-service --namespace yournamespace_here --image registry.hub.docker.com/<your_dockerhub_username_here>/weather-service:latest --env WEATHER_API_TOKEN=your_weather_api_token_here --force
 ```
 
 
@@ -50,8 +50,8 @@ Open a terminal and run the following.
 ```
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub  # Add this key to your github profile
-git config --global user.name "Jon Keam"
-git config --global user.email jkeam@redhat.com
+git config --global user.name "<github username"
+git config --global user.email <github email>
 ```
 
 Also create a `~/.ssh/config` that looks like
@@ -62,7 +62,7 @@ IdentityFile ~/.ssh/id_rsa
 
 Now you can clone your repo, something like this:
 ```
-git clone git@github.com:jkeam/weather-service.git`
+git clone git@github.com:therealcabrera/weather-service.git`
 cd weather-service
 ```
 
